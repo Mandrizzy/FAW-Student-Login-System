@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>FAW Student Support System - Home Page</title>
+    </head>
+    <body>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="./img/Future Academies Logo.png" alt="Logo" width="90" height="72" class="d-inline-block align-text-top">
+                <h3>Future Academies Watford</h3>
+              </a>
+            </div>
+          </nav>
+
+          <div class="container-fluid text-center">
+            <h1 class="mr-t">Welcome to the Future Academies Student Support System</h1>
+            
+          </div>
+
+          <div>
+            <div class="container mr-t">
+              <h1>Please Fill In The Information Below</h1>
+              <form id="emailForm">
+                  <input type="text" id="fname" placeholder="Enter your first name" required>
+                  <input type="text" id="lname" placeholder="Enter your last name" required>
+                  <!-- <input type="text" id="birthday" placeholder="Enter your birthday (dd/mm/yy)" required> -->
+
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Day">
+                          <small id="emailHelp" class="form-text text-muted">Enter the day of the month you were born</small>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Month">
+                          <small id="emailHelp" class="form-text text-muted">"Enter the number of the month you were born.</small><br>
+                          <small>For example, 1 for January, 2 for February, etc.</small>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Year">
+                          <small id="emailHelp" class="form-text text-muted">Enter the year you were born</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <button type="submit">Find Email and Password</button>
+                  <button style="background-color: red;" type="submit">Clear</button>
+              </form>
+              <p id="result"></p>
+          </div>
+          </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <script>
+          document.getElementById('emailForm').addEventListener('submit', function(event) {
+              event.preventDefault();
+              const initials = document.getElementById('initials').value;
+              const birthday = document.getElementById('birthday').value;
+              const userInfo = findUserInfo(initials, birthday);
+              document.getElementById('result').textContent = userInfo ? `Your email is: ${userInfo.email}, Your password is: ${userInfo.password}` : 'User not found';
+          });
+  
+          function findUserInfo(initials, birthday) {
+              // This is a placeholder function. Replace with actual user info lookup logic.
+              const userDatabase = {
+                  'VV10/02/11': { email: '22vladv@watford.futureacademies.org', password: 'Room.Video.Need' },
+                  'AS02/02/92': { email: 'alice.smith@example.com', password: 'alicepassword' }
+              };
+              return userDatabase[`${initials}${birthday}`] || null;
+          }
+      </script>
+    </body>
+</html>
