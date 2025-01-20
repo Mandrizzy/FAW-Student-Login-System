@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./style.css">
         <title>FAW Student Support System - Home Page</title>
     </head>
     <body>
@@ -69,22 +69,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
         <script>
-          document.getElementById('emailForm').addEventListener('submit', function(event) {
-              event.preventDefault();
-              const initials = document.getElementById('initials').value;
-              const birthday = document.getElementById('birthday').value;
-              const userInfo = findUserInfo(initials, birthday);
-              document.getElementById('result').textContent = userInfo ? `Your email is: ${userInfo.email}, Your password is: ${userInfo.password}` : 'User not found';
-          });
+         
   
-          function findUserInfo(initials, birthday) {
-              // This is a placeholder function. Replace with actual user info lookup logic.
-              const userDatabase = {
-                  'VV10/02/11': { email: '22vladv@watford.futureacademies.org', password: 'Room.Video.Need' },
-                  'AS02/02/92': { email: 'alice.smith@example.com', password: 'alicepassword' }
-              };
-              return userDatabase[`${initials}${birthday}`] || null;
-          }
+         
       </script>
     </body>
 </html>
