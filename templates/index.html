@@ -25,39 +25,11 @@
           <div>
             <div class="container mr-t">
               <h1>Please Fill In The Information Below</h1>
-              <form id="emailForm">
-                  <input type="text" id="fname" placeholder="Enter your first name" required>
-                  <input type="text" id="lname" placeholder="Enter your last name" required>
-                  <!-- <input type="text" id="birthday" placeholder="Enter your birthday (dd/mm/yy)" required> -->
-
-
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Day">
-                          <small id="emailHelp" class="form-text text-muted">Enter the day of the month you were born</small>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Month">
-                          <small id="emailHelp" class="form-text text-muted">"Enter the number of the month you were born.</small><br>
-                          <small>For example, 1 for January, 2 for February, etc.</small>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Year">
-                          <small id="emailHelp" class="form-text text-muted">Enter the year you were born</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <button type="submit">Find Email and Password</button>
-                  <button style="background-color: red;" type="submit">Clear</button>
+              <form id="nameinfo" method="get" action="/student">
+                  <input type="text" name="fname" id="fname" placeholder="Enter your first name" required>
+                  <input type="text" name="lname" id="lname" placeholder="Enter your last name" required>
+                  <button type="submit" value="submit">Find Email and Password</button>
+                  <button style="background-color: red;" type="reset" value="reset">Clear</button>
               </form>
               <p id="result"></p>
           </div>

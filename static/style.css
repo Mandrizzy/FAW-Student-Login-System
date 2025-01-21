@@ -17,13 +17,23 @@ body{
     margin-bottom: 40px;
 }
 
-    .container {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
+.form-check-input{
+    background-color: #ccccb3;
+    margin-right: 15px;
+}
+
+.form-check{
+    display: inline-flex;
+    margin-left: 35%;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
     input {
         width: 100%;
         padding: 10px;
