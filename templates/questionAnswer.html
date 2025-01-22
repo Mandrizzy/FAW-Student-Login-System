@@ -32,13 +32,14 @@
                    </div>
                    <br>
                    <br>
-                   <div class="row">
-                    <p><strong>Write your answer to the question down below</strong></p>
-                    <input class="form-control" type="text" placeholder="Enter your Answer Here" aria-label="default input example">
-                   </div>
               </div>
-              <form id="emailForm">
-                  <button type="submit">Submit</button>
+              <form id="securityAnswer" method="post" action="/checkanswer">
+                <div class="row">
+                  <p><strong>Write your answer to the question down below</strong></p>
+                  <input class="form-control" type="text" placeholder="Enter your Answer Here" name="answer" aria-label="default input example">
+                  <input type="hidden" name="student_id" value="{{id}}">
+                 </div>
+                  <button type="submit" value="submit">Submit</button>
               </form>
               <p id="result"></p>
           </div>

@@ -25,43 +25,44 @@
           <div>
             <div class="container mr-t">
               <h1>Security Question</h1>
-              <div class="container">
-                   <div class="row">
-                    <p><strong>Please select one security question to answer</strong></p>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        What's your favourite family member name?
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        What's the name of your childhood crush?
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                      <label class="form-check-label" for="flexRadioDefault3">
-                        What's the name of your childhood role model?
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
-                      <label class="form-check-label" for="flexRadioDefault4">
-                        What's your favourite pet's name?
-                      </label>
-                    </div>
+              <form id="security_question" method="post" action="/studentinfo">
+                <div class="container">
+                  <div class="row">
+                   <p><strong>Please select one security question to answer</strong></p>
+                   <div class="form-check">
+                     <input class="form-check-input" type="radio" name="questions" id="flexRadioDefault1" value="Q1">
+                     <label class="form-check-label" for="flexRadioDefault1">
+                       What's your favourite family member name?
+                     </label>
                    </div>
-                   <br>
-                   <br>
-                   <div class="row">
-                    <p><strong>Write your answer to the question down below</strong></p>
-                    <input class="form-control" type="text" placeholder="Enter your Answer Here" aria-label="default input example">
+                   <div class="form-check">
+                     <input class="form-check-input" type="radio" name="questions" id="flexRadioDefault2" value="Q2">
+                     <label class="form-check-label" for="flexRadioDefault2">
+                       What's the name of your childhood crush?
+                     </label>
                    </div>
-              </div>
-              <form id="emailForm">
-                  <button type="submit">Submit</button>
+                   <div class="form-check">
+                     <input class="form-check-input" type="radio" name="questions" id="flexRadioDefault3" value="Q3">
+                     <label class="form-check-label" for="flexRadioDefault3">
+                       What's the name of your childhood role model?
+                     </label>
+                   </div>
+                   <div class="form-check">
+                     <input class="form-check-input" type="radio" name="questions" id="flexRadioDefault4" value="Q4">
+                     <label class="form-check-label" for="flexRadioDefault4">
+                       What's your favourite pet's name?
+                     </label>
+                   </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="row">
+                   <p><strong>Write your answer to the question down below</strong></p>
+                   <input class="form-control" type="text" name="answer" placeholder="Enter your Answer Here" aria-label="default input example">
+                  </div>
+                  <input type="hidden" name="student_id" value="{{id}}">
+                  <button type="submit" value="submit">Submit</button>
+             </div>
               </form>
               <p id="result"></p>
           </div>
