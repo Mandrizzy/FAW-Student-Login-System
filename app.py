@@ -53,10 +53,9 @@ def question():
         cursor.execute("SELECT ID FROM Student WHERE firstname=? AND lastname=?", (Firstname,Lastname))
         result = cursor.fetchone()
         id=result[0]
-        cursor.execute("SELECT question from SecurityQuestion WHERE studentID=?",(str(id)))
+        str_id = str(id)
+        cursor.execute("SELECT question from SecurityQuestion WHERE studentID=?",(str_id,))
         result2 = cursor.fetchone()
-        connection.commit()
-        connection.close()
         if (result2 is None):
             return render_template('question.html',id=str(id))
         else:
@@ -68,10 +67,11 @@ def student_info():
         securityQuestion = request.form['questions']
         securityAnswer = request.form['answer']
         studentID = int(request.form['student_id'])
+        str_ID = str(studentID)
         connection = sqlite3.connect(current_directory + "/sss.db")
         cursor = connection.cursor()
         cursor.execute("INSERT INTO SecurityQuestion (studentID,question,answer) VALUES (?,?,?)",(studentID,securityQuestion,securityAnswer))
-        cursor.execute("SELECT * from Student WHERE ID=?",(str(studentID)))
+        cursor.execute("SELECT * from Student WHERE ID=?",(str_ID,))
         student = cursor.fetchone()
         connection.commit()
         connection.close()
@@ -86,10 +86,10 @@ def check_answer():
         student_id = request.form['student_id']
         connection = sqlite3.connect(current_directory + "/sss.db")
         cursor = connection.cursor()
-        cursor.execute("SELECT answer from SecurityQuestion WHERE studentID=?",(student_id))
+        cursor.execute("SELECT answer from SecurityQuestion WHERE studentID=?",(student_id,))
         inquiry = cursor.fetchone()
         if (answer == inquiry[0]):
-            cursor.execute("SELECT * from Student WHERE ID=?",(student_id))
+            cursor.execute("SELECT * from Student WHERE ID=?",(student_id,))
             student = cursor.fetchone()
             connection.commit()
             connection.close()
