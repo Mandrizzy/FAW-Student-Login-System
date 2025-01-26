@@ -15,20 +15,19 @@ Questiondict = {
     "Q4": "What's your favourite pet's name?"
 }
 
+def clean_string(input_string):
+    # Convert to lowercase and remove white spaces
+    return input_string.replace(" ", "").lower()
+
 @app.route('/')
 def index():
-    # connection = sqlite3.connect(current_directory + "/sss.db")
-    # cursor = connection.cursor()
-    # cursor.execute("INSERT INTO Students (Firstname, Lastname,Email,Grade) VALUES ('Vlad', 'Volley','watford@gmail.com', 9)");
-    # connection.commit()
-    # connection.close()
     return render_template('index.html')
 
 @app.route('/student')
 def student():
     if request.method == "GET":
-        Firstname= request.args['fname']
-        Lastname= request.args['lname']
+        Firstname = clean_string(request.args['fname'])
+        Lastname = clean_string(request.args['lname'])
         connection = sqlite3.connect(current_directory + "/sss.db")
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM Student WHERE firstname=? AND lastname=?", (Firstname,Lastname))
@@ -46,8 +45,8 @@ def student():
 def question():
     #can use try and except to catch the url error when not using the form properly
     if request.method == "GET":
-        Firstname= request.args['fname']
-        Lastname= request.args['lname']
+        Firstname = clean_string(request.args['fname'])
+        Lastname = clean_string(request.args['lname'])
         connection = sqlite3.connect(current_directory + "/sss.db")
         cursor = connection.cursor()
         cursor.execute("SELECT ID FROM Student WHERE firstname=? AND lastname=?", (Firstname,Lastname))
@@ -60,12 +59,14 @@ def question():
             return render_template('question.html',id=str(id))
         else:
             return render_template('questionAnswer.html',q=Questiondict[result2[0]],id=str(id))
+        
+
 
 @app.route('/studentinfo', methods=['GET','POST'])
 def student_info():
     if request.method =="POST":
         securityQuestion = request.form['questions']
-        securityAnswer = request.form['answer']
+        securityAnswer = clean_string(request.form['answer'])
         studentID = int(request.form['student_id'])
         str_ID = str(studentID)
         connection = sqlite3.connect(current_directory + "/sss.db")
@@ -82,7 +83,7 @@ def student_info():
 @app.route('/checkanswer', methods=['GET','POST'])
 def check_answer():
     if request.method =="POST":
-        answer = request.form['answer']
+        answer = clean_string(request.form['answer'])
         student_id = request.form['student_id']
         connection = sqlite3.connect(current_directory + "/sss.db")
         cursor = connection.cursor()
